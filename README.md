@@ -27,6 +27,7 @@ Typical Lua memory usage ranges from **1500–1900**, depending on your executor
    - Improve security
    - Optimize memory
    - Reorder functions for better performance
+   - More...
 
 ---
 
