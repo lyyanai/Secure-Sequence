@@ -100,6 +100,11 @@ do
             if not h then
                 return;
             end;
+            
+            if true then
+                return h(...);
+            end;
+
             local i, j = pcal(h, ...);
             if not i then
                 local k, l = j:find(":%d+: ");
