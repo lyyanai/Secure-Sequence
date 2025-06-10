@@ -331,6 +331,9 @@ if type(GG.ScriptCache.userIdentify.gcF) ~= 'table' then
         if clonefunction and env and typeof(env) == 'function' then
             GG[index] = clonefunction(env);
         else
+            if typeof(env) ~= 'function' then
+                print(index, typeof(env));
+            end;
             GG[index] = env;
         end;
     end;
