@@ -13632,6 +13632,8 @@ if not GG.ALLVersion then
         else
             GG.ALLVersion = {["MagicCity"] = true};
         end;
+    else
+        GG.ALLVersion = {["MagicCity"] = true};
     end;
 end;
 if ALLVersion["MainLoader"] == nil then
