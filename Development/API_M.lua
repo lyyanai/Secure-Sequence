@@ -408,6 +408,10 @@ if not GG.ScriptCache.userIdentify.is_loaded_lc then
     end;
 end;
 
+GG.newcclosure = newcclosure or function(...)
+    return ...;
+end;
+
 if type(GG.ScriptCache.userIdentify.device) == 'nil' then
     if UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled then
         GG.ScriptCache.userIdentify.device =  "Mobile";
@@ -13314,6 +13318,118 @@ if not GG.loadScriptFromCache then
     end;
 end;
 
+if UpperC and LowerC then
+    if PlaceId == 15962819441 or PlaceId == 96354063422506 then
+        local a = nil;
+        a = UpperC(game, "__namecall", function(self, ...)
+            local args = {...};
+            local method = getnamecallmethod();
+            local tos_self = tos(self);
+
+            if method == "FireServer" then
+                if tos_self == "Sender" or tos_self == "Sender2" then
+                    return wait(9e9);
+                end;
+            end;
+
+            return a(self, ...);
+        end);
+    end;
+    if PlaceId == 96354063422506 then
+        local ml = {
+            GS = "GetService",
+            jfoik = "Players",
+            nIJM = "LocalPlayer",
+            mhfd = "PlayerGui",
+            j6yr = "ChildAdded",
+            paosd = "game",
+            mkas = "next",
+            p0ms = "getconnections",
+            nsjkd = 'Disable',
+            X19uYW1lY2FsbA = "__namecall",
+            X19pbmRleA = "__index",
+            mksdsdds = "Bypassed Anti Cheat [sUNC + Specific]",
+        };
+        
+        local k,osi = getfenv(),getgenv();
+        local p = k[ml.paosd];
+        local s = k[ml.mkas];
+        local kd = osi[ml.p0ms];
+        local meta = "ReplicatedFirst.Loading.LocalScript";
+        
+        for i,v in s , kd(p[ml.GS](p,ml.jfoik)[ml.nIJM][ml.mhfd][ml.j6yr]) do
+            if v then
+                v[ml.nsjkd](v);
+            end;
+        end;
+        
+        local old = nil;
+        old = UpperC(p,ml.X19uYW1lY2FsbA, newcclosure(function(self , ...)
+            local traceBACK = debug.traceback();
+        
+            if strfind(traceBACK,meta,1,true) then
+                return error(ml.mksdsdds);
+            end;
+        
+            if getnamecallmethod() == "FireServer" and not checkcaller() then
+                if strfind(tos(self),"Sender",1,true) then
+                    return error(ml.mksdsdds);
+                end;
+            end;
+            return old(self , ...)
+        end));
+        
+        local old_ind = nil;
+        old_ind = UpperC(p,ml.X19pbmRleA, newcclosure(function(self , i , v)
+            local traceBACK = debug.traceback();
+        
+            if strfind(traceBACK,meta,1,true) then
+                return error(ml.mksdsdds);
+            end;
+        
+            if strfind(tos(self),"Sender",1,true) and not checkcaller() then
+                return error(ml.mksdsdds);
+            end;
+        
+            return old_ind(self , i , v)
+        end));
+        
+        do
+            local oldfire = nil;
+            oldfire = LowerC(Instance.new("RemoteEvent").FireServer, newcclosure(function(self,...)
+                local traceBACK = debug.traceback();
+        
+                if strfind(traceBACK,meta,1,true) then
+                    return error(ml.mksdsdds);
+                end;
+        
+                if strfind(tos(self),"Sender",1,true) then
+                    return error(ml.mksdsdds);
+                end;
+        
+                return oldfire(self, ...)
+            end));
+        end;
+        
+        do
+            local oldfire = nil;
+            oldfire = LowerC(Instance.new("UnreliableRemoteEvent").FireServer, newcclosure(function(self,...)
+                local traceBACK = debug.traceback();
+        
+                if strfind(traceBACK,meta,1,true) then
+                    return error(ml.mksdsdds);
+                end;
+        
+                if strfind(tos(self),"Sender",1,true) then
+                    return error(ml.mksdsdds);
+                end;
+        
+                return oldfire(self, ...)
+            end));
+        end;
+    end;
+end;
+
 ------------- Script Asset / Script Cache 2 -------------
 
 GG.GameId = GG.GameId or game.GameId;
@@ -13533,6 +13649,6 @@ if GG.LSecureLoad and GG.LSecureUI and GG.Functions then
     return GG.LSecureLoad();
 else
     GG.ScriptStatus = "Intializing API_P";
-    local srcName : string = "https://raw.githubusercontent.com/Yumiara/FlowRewrite/refs/heads/main/API_P.lua";
+    local srcName : string = "https://raw.githubusercontent.com/Yumiara/Secure-Sequence/refs/heads/main/Development/API_K.lua";
     return loadScriptFromCache(srcName, "API_P", false, 600, true);
 end;
