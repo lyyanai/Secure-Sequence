@@ -192,7 +192,7 @@ do
             return k;
         end;
         g.Tween = function(h, i, j, ...)
-            return TweenService:Create(h, TweenInfo(i, ...), j);
+            return TweenService:Create(h, TwInfo(i, ...), j);
         end;
         g.NewRoundFrame = function(h, i, j, k, n)
             local o = g.New(n and "ImageButton" or "ImageLabel", {
