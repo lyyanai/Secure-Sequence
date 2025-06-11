@@ -20,7 +20,7 @@ GG.LoaderSettings = ((GG.LoaderSettings and GG.LoaderSettings.ExecutedByUser) an
     AllowThemeEdit = false;
     AllowGraphicsEditor = false;
     AllowMusic = true;
-    AllowCache = false;
+    AllowCache = true;
     AllowKickWithError = false;
 
     TheMimicLoader = {
@@ -13264,9 +13264,10 @@ if not GG.loadScriptFromCache then
                 local source = HttpGet(game, srcName);
                 ALLVersion[fileName] = tos(tick());
 
+                writefile(cacheFile, source);
+
                 if not no_write then
                     local versionContent = EnCodeJ(HttpService, ALLVersion);
-                    writefile(cacheFile, source);
                     writefile(versionFile, versionContent);
                 end;
 
@@ -13284,9 +13285,10 @@ if not GG.loadScriptFromCache then
                         local source = HttpGet(game, srcName);
                         ALLVersion[fileName] = tos(tick());
 
+                        writefile(cacheFile, source);
+
                         if not no_write then
                             local versionContent = EnCodeJ(HttpService, ALLVersion);
-                            writefile(cacheFile, source);
                             writefile(versionFile, versionContent);
                         end;
 
@@ -13313,6 +13315,9 @@ if not GG.loadScriptFromCache then
             if noload then
                 return source;
             end;
+
+            warn("[Flow] : Loaded " .. fileName .. " via nowrite.2");
+
             return loadsource(source);
         end;
     end;
