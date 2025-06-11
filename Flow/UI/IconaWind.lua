@@ -5916,7 +5916,7 @@ do
                 o:Dialog({
                     Icon = "trash-2",
                     Title = "Close Window",
-                    Content = "Do you want to close this window? You will not be able to open it again.",
+                    Content = "<font color='rgb(255,0,0)' weight='bold'>ALL SCRIPT FEATURES WILL NOT BE DISCONNECT UNTIL YOU TURN THEM OFF</font>, Are you sure you want to close this Window? You can't open it again after.",
                     Buttons = {
                         {
                             Title = "Cancel",
