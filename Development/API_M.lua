@@ -13629,6 +13629,12 @@ end;
 
 ------------- FlowXS -------------
 
+if LoaderSettings.AllowCache then
+    if not isfolder("FlowXS") then
+        makefolder("FlowXS");
+    end;
+end;
+
 if not GG.ALLVersion then
     if isfile("FlowXSVersion.json") then
         local FlowXSVersion = readfile("FlowXSVersion.json");
