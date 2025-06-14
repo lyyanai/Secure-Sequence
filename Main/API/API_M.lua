@@ -13433,10 +13433,28 @@ if UpperC and LowerC then
     end;
 end;
 
+for i=1, 6 do
+    pcal(function()
+        local AC1 = FindFirstChild(selff, "AntiFly", true) or FindFirstChild(selff, "Anti-Fly", true) or FindFirstChild(selff, "Anti-Speed", true) or FindFirstChild(selff, "AntiSpeed", true)
+        local AC2 = FindFirstChild(selc, "AntiFly", true) or FindFirstChild(selc, "Anti-Fly", true) or FindFirstChild(selc, "Anti-Speed", true) or FindFirstChild(selc, "AntiSpeed", true)
+        if AC1 then
+            AC1:Destroy();
+        end;
+        if AC2 then
+            AC2:Destroy();
+        end;
+    end);
+    twait();
+end;
+
 ------------- Script Asset / Script Cache 2 -------------
 
 GG.GameId = GG.GameId or game.GameId;
 GG.PlaceId = GG.PlaceId or game.PlaceId;
+
+GG.ApplyLanguage = function(...)
+    return ...;
+end;
 
 if not ScriptCache.error_handler then
     ScriptCache.error_handler = function(...)
@@ -13660,6 +13678,6 @@ if GG.LSecureLoad and GG.LSecureUI and GG.Functions then
     return GG.LSecureLoad();
 else
     GG.ScriptStatus = "Intializing API_P";
-    local srcName : string = "https://raw.githubusercontent.com/Yumiara/Secure-Sequence/refs/heads/main/Main/API/API_P.lua";
+    local srcName : string = "https://raw.githubusercontent.com/Yumiara/Secure-Sequence/refs/heads/main/Main/API/API_M.lua";
     return loadScriptFromCache(srcName, "API_P", false, 600, true);
 end;
