@@ -13687,7 +13687,7 @@ GG.ScriptStatus = "Finish Intializing API_M";
 warn("[Flow] : Loaded Main.lua via execution");
 
 ------------- Source Loader -------------
-GG.API_Only = true;
+
 if GG.API_Only then return; end;
 
 if GG.LSecureLoad and GG.LSecureUI and GG.Functions then
