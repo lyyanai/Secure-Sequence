@@ -37,6 +37,9 @@ GG.Uni = "";
 GG.API_K = "";
 GG.API_Q = [[if not Configs then return; end;]];
 
+GG.GameId = GG.GameId or game.GameId;
+GG.PlaceId = GG.PlaceId or game.PlaceId;
+
 ------------- LPH Fixer -------------
 
 GG.LPH_NO_VIRTUALIZE = GG.LPH_NO_VIRTUALIZE or function(...)
@@ -13433,24 +13436,23 @@ if UpperC and LowerC then
     end;
 end;
 
-for i=1, 6 do
-    pcal(function()
-        local AC1 = FindFirstChild(selff, "AntiFly", true) or FindFirstChild(selff, "Anti-Fly", true) or FindFirstChild(selff, "Anti-Speed", true) or FindFirstChild(selff, "AntiSpeed", true)
-        local AC2 = FindFirstChild(selc, "AntiFly", true) or FindFirstChild(selc, "Anti-Fly", true) or FindFirstChild(selc, "Anti-Speed", true) or FindFirstChild(selc, "AntiSpeed", true)
-        if AC1 then
-            AC1:Destroy();
-        end;
-        if AC2 then
-            AC2:Destroy();
-        end;
-    end);
-    twait();
+if GameId == 2294168059 then
+    for i=1, 6 do
+        pcal(function()
+            local AC1 = FindFirstChild(selff, "AntiFly", true) or FindFirstChild(selff, "Anti-Fly", true) or FindFirstChild(selff, "Anti-Speed", true) or FindFirstChild(selff, "AntiSpeed", true)
+            local AC2 = FindFirstChild(selc, "AntiFly", true) or FindFirstChild(selc, "Anti-Fly", true) or FindFirstChild(selc, "Anti-Speed", true) or FindFirstChild(selc, "AntiSpeed", true)
+            if AC1 then
+                AC1:Destroy();
+            end;
+            if AC2 then
+                AC2:Destroy();
+            end;
+        end);
+        twait();
+    end;
 end;
 
 ------------- Script Asset / Script Cache 2 -------------
-
-GG.GameId = GG.GameId or game.GameId;
-GG.PlaceId = GG.PlaceId or game.PlaceId;
 
 GG.ApplyLanguage = function(...)
     return ...;
