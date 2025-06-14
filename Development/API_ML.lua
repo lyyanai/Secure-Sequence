@@ -21,16 +21,14 @@ GG.LoaderSettings = ((GG.LoaderSettings and GG.LoaderSettings.ExecutedByUser) an
     AllowGraphicsEditor = false;
     AllowMusic = true;
     AllowCache = true;
-    AllowKickWithError = false;
+    AllowKickWithError = true;
+    AllowGameTab = true;
+    AllowPlayerTab = true;
+};
 
-    TheMimicLoader = {
-        ["Load_Sections"] = true;
-        ["Load_WithPlaceID_Checks"] = false;
-        ["Load_ESP"] = true;
-        ["Load_PlayerTab"] = true;
-        ["Load_GameTab"] = true;
-        ["Disable_AllDropdown_AutoLoad"] = false; 
-    };
+GG.LoaderSettings.TheMimicLoader = GG.LoaderSettings.TheMimicLoader or {
+    ["Load_Sections"] = true;
+    ["Load_WithPlaceID_Checks"] = false;
 };
 
 GG.APINUMBER = "Luarify 2.9";
@@ -38,6 +36,11 @@ GG.APINUMBER = "Luarify 2.9";
 GG.Uni = "";
 GG.API_K = "";
 GG.API_Q = [[if not Configs then return; end;]];
+
+GG.GameId = GG.GameId or game.GameId;
+GG.PlaceId = GG.PlaceId or game.PlaceId;
+
+warn("a");
 
 ------------- LPH Fixer -------------
 
@@ -293,6 +296,8 @@ if not GG.ReplicatedFirst_lc then
     GG.ReplicatedFirst_lc = true;
 
 end;
+
+warn("b");
 
 ------------- Global API Setup -------------
 
@@ -13323,6 +13328,8 @@ if not GG.loadScriptFromCache then
     end;
 end;
 
+warn("c");
+
 if UpperC and LowerC then
     if PlaceId == 15962819441 or PlaceId == 96354063422506 then
         local a = nil;
@@ -13435,10 +13442,35 @@ if UpperC and LowerC then
     end;
 end;
 
+warn("d");
+
+if GameId == 2294168059 then
+    for i=1, 6 do
+        pcal(function()
+            local AC1 = FindFirstChild(selff, "AntiFly", true) or FindFirstChild(selff, "Anti-Fly", true) or FindFirstChild(selff, "Anti-Speed", true) or FindFirstChild(selff, "AntiSpeed", true)
+            local AC2 = FindFirstChild(selc, "AntiFly", true) or FindFirstChild(selc, "Anti-Fly", true) or FindFirstChild(selc, "Anti-Speed", true) or FindFirstChild(selc, "AntiSpeed", true)
+            if AC1 then
+                AC1:Destroy();
+            end;
+            if AC2 then
+                AC2:Destroy();
+            end;
+        end);
+        twait();
+    end;
+end;
+
 ------------- Script Asset / Script Cache 2 -------------
 
-GG.GameId = GG.GameId or game.GameId;
-GG.PlaceId = GG.PlaceId or game.PlaceId;
+GG.ApplyLanguage = function(...)
+    return ...;
+end;
+
+GG.CONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0};
+
+if GG.ScriptCache.userIdentify.device == "Mobile" and GG.ScriptCache.userIdentify.unc_infos.require ~= "Lua" then
+    GG.controlModule = GG.controlModule or require(PlayerScripts:WaitForChild("PlayerModule"):WaitForChild("ControlModule"));
+end;
 
 if not ScriptCache.error_handler then
     ScriptCache.error_handler = function(...)
@@ -13655,13 +13687,13 @@ GG.ScriptStatus = "Finish Intializing API_M";
 warn("[Flow] : Loaded Main.lua via execution");
 
 ------------- Source Loader -------------
-
+GG.API_Only = true;
 if GG.API_Only then return; end;
 
 if GG.LSecureLoad and GG.LSecureUI and GG.Functions then
     return GG.LSecureLoad();
 else
     GG.ScriptStatus = "Intializing API_P";
-    local srcName : string = "https://raw.githubusercontent.com/Yumiara/Secure-Sequence/refs/heads/main/Development/API_K.lua";
+    local srcName : string = "https://raw.githubusercontent.com/Yumiara/Secure-Sequence/refs/heads/main/Main/API/API_K.lua";
     return loadScriptFromCache(srcName, "API_P", false, 600, true);
 end;
