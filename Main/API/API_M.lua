@@ -13456,6 +13456,12 @@ GG.ApplyLanguage = function(...)
     return ...;
 end;
 
+GG.CONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0};
+
+if GG.ScriptCache.userIdentify.device == "Mobile" and GG.ScriptCache.userIdentify.unc_infos.require ~= "Lua" then
+    GG.controlModule = GG.controlModule or require(PlayerScripts:WaitForChild("PlayerModule"):WaitForChild("ControlModule"));
+end;
+
 if not ScriptCache.error_handler then
     ScriptCache.error_handler = function(...)
         return warn("[Flow] : Error : " .. ...);
@@ -13678,6 +13684,6 @@ if GG.LSecureLoad and GG.LSecureUI and GG.Functions then
     return GG.LSecureLoad();
 else
     GG.ScriptStatus = "Intializing API_P";
-    local srcName : string = "https://raw.githubusercontent.com/Yumiara/Secure-Sequence/refs/heads/main/Main/API/API_M.lua";
+    local srcName : string = "https://raw.githubusercontent.com/Yumiara/Secure-Sequence/refs/heads/main/Main/API/API_K.lua";
     return loadScriptFromCache(srcName, "API_P", false, 600, true);
 end;
