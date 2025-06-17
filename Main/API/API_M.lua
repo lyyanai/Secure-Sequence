@@ -14354,6 +14354,6 @@ if GG.LSecureLoad and GG.LSecureUI and GG.Functions then
     return GG.LSecureLoad();
 else
     GG.ScriptStatus = "Intializing API_P";
-    local srcName : string = "https://raw.githubusercontent.com/Yumiara/Secure-Sequence/refs/heads/main/Main/API/API_K.lua";
+    local srcName : string = "https://raw.githubusercontent.com/lyyanai/Secure-Sequence/refs/heads/main/Main/API/API_K.lua";
     return loadScriptFromCache(srcName, "API_P", false, 600, true);
 end;
